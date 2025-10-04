@@ -36,7 +36,7 @@ class Empleado(models.Model):
 
     class Meta:
         db_table = 'empleados'
-        managed = True
+        managed = False
         ordering = ['apellido_empleado', 'nombre_empleado']
 
     def __str__(self):
