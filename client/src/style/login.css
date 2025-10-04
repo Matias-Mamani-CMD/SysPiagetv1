@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap');
+
+
+
+:root {
+  /* Sistema de diseño - Colores */
+  --color-primary: #252861;
+  --color-secondary: #1a1c49;
+  --color-accent: #C41014;
+  --color-accent-hover: #E30613;
+  --color-gray: #495057;
+  --color-gray-hover: #6c757d;
+  --color-white: #ffffff;
+  --color-text-light: rgba(255, 255, 255, 0.9);
+  
+  /* Sistema de diseño - Espaciados */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 40px;
+  --spacing-xxxl: 50px;
+  
+  /* Sistema de diseño - Tipografía */
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 17px;
+  --font-size-xl: 20px;
+  --font-size-xxl: 28px;
+  --font-size-xxxl: 36px;
+  
+  /* Sistema de diseño - Border radius */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  
+  /* Transiciones */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+
+
+body {
+    background-image: url(./logos_e_imagenes/5184157.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: "Lexend", serif;
+    overflow: hidden; /* desactiva el scroll */
+    min-height: 100vh;
+}
+
+
+/* Contenedor principal */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: var(--spacing-lg);
+  position: relative;
+}
+
+/* Eliminamos el pseudo-elemento ::before redundante ya que está en el body */
+
+/* Card principal */
+.login-card-row {
+  display: flex;
+  width: min(95%, 1400px);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: 
+    20px 20px 20px 20px rgba(0, 0, 0, 0.2),
+    20px 20px 20px 20px rgba(0, 0, 0, 0.2);
+  min-height: 700px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Columna izquierda - Información institucional */
+.login-left {
+  background: var(--color-primary);
+  color: var(--color-white);
+  flex: 1.5;
+  padding: var(--spacing-xxxl) var(--spacing-xxl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de gradiente sutil en la columna izquierda */
+.login-left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+.login-institute {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xxxl);
+  position: relative;
+  z-index: 1;
+}
+
+.login-left .logo {
+  width: 140px;
+  height: auto;
+  border-radius: var(--border-radius-sm);
+  transition: transform var(--transition-normal);
+}
+
+.login-left .logo:hover {
+  transform: scale(1.05);
+}
+
+.login-left h2 {
+  margin: 0;
+  font-size: var(--font-size-xxxl);
+  font-weight: 600;
+  color: var(--color-white);
+  line-height: 1.2;
+}
+
+.institute-number {
+  font-size: var(--font-size-xl);
+  margin: var(--spacing-sm) 0 0;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.institute-info {
+  margin-top: var(--spacing-xxxl);
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+  opacity: 0.9;
+  max-width: 500px;
+  position: relative;
+  z-index: 1;
+}
+/* Lado derecho translúcido */
+.login-right {
+  flex: 1;
+  background: rgba(255, 255, 255, 0); /* blanco translúcido */
+  backdrop-filter: blur(10px); /* efecto vidrio */
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 3px solid #c41014; /* borde rojo */
+  border-radius: 0 8px 8px 0;
+}
+
+/* Header */
+.login-header {
+  font-family: "Montserrat", sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 100px;
+  color: #000000; /* rojo */
+}
+
+/* Mensaje de error/info */
+.message {
+  text-align: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(255, 0, 0, 0.05);
+  color: #c41014;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Formulario */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Labels */
+.login-form label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #c41014; /* rojo */
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Inputs */
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  font-size: 14px;
+  transition: border-color 0.3s;
+  background: transparent;
+  font-family: "Montserrat", sans-serif;
+}
+
+.login-form input:focus {
+  border-bottom: 3px solid #252861;/* azul al enfocar */
+}
+
+/* Password con icono */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 20px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.eye-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.toggle-password:hover .eye-icon {
+  opacity: 1;
+}
+
+/* Botón Ingresar en rojo */
+.btn-red {
+  width: 100%;
+  padding: 14px;
+  background: #c41014; /* rojo */
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-red:hover {
+  background: #a30e11; /* rojo más oscuro */
+  transform: translateY(-1px);
+}
